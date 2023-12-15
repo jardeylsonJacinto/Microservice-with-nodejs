@@ -1,5 +1,5 @@
 {
-  "name": "microservice-with-nodejs",
+  "name": "pedidos",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,7 +9,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "git-commit-msg-linter": "^5.0.4"
+  "dependencies": {
+    "express": "^4.18.2",
+    "kafkajs": "^2.2.4"
   }
 }
