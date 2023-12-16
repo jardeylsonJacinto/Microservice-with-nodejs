@@ -16,4 +16,6 @@ model Client {
   email    String @unique
   password String
   phone    String
+
+  @@map("clients")
 }
