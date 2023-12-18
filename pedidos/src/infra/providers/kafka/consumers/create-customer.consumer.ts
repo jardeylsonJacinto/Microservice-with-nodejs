@@ -1,3 +1,4 @@
+import { prismaClient } from "../../../database/prismaClient";
 import { kafkaConsumer } from "../kafka.consumer";
 
 type CustomerConsumer = {
@@ -11,6 +12,13 @@ export async function createCustomerConsume(){
     eachMessage: async ({ message }) => {
       const messageToString = message.value!.toString()
       const customer = JSON.parse(messageToString) as CustomerConsumer
+
+      await prismaClient.customer.create({
+        data: {
+          externalId: customer.id,
+          email: customer.email
+        }
+      })
     }
   })
 }
