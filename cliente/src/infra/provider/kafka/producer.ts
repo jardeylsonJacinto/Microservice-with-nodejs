@@ -1,6 +1,6 @@
 import { kafka } from '.'
 
-export class kafkaSendMessage {
+export class KafkaSendMessage {
   async execute(topic: string, payload: any): Promise<void> {
     const producer = kafka.producer({
       allowAutoTopicCreation: true,
