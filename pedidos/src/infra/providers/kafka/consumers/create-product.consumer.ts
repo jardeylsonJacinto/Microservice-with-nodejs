@@ -6,9 +6,9 @@ type ProductConsumer = {
   id: string
 }
 
-export async function createProductConsume(){
-  const product = await kafkaConsumer('PRODUCT_CREATED')
-  await product.run({
+export async function createProductConsumer(){
+  const consumer = await kafkaConsumer('PRODUCT_CREATED')
+  await consumer.run({
     eachMessage: async ({ message }) => {
       const messageToString = message.value!.toString()
       const product = JSON.parse(messageToString) as ProductConsumer
@@ -23,4 +23,4 @@ export async function createProductConsume(){
   })
 }
 
-createProductConsume()
+createProductConsumer()
