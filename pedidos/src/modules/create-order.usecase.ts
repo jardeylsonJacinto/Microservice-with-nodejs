@@ -3,6 +3,7 @@ import { prismaClient } from "../infra/database/prismaClient"
 type CreateOrderRequest = {
   customerId: string,
   customerEmail: string,
+  status: string,
   items: [{
     productId: string,
     quantity: number
@@ -19,6 +20,7 @@ export class CreateOrderUseCase {
       data: {
         customerId: data.customerId,
         customerEmail: data.customerEmail,
+        status: data.status,
         orderItems: {
           createMany: {
             data: data.items
