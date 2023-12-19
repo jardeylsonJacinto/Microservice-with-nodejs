@@ -8,7 +8,7 @@ router.post('/orders', (request, response) => {
   new CreateOrderController().handle(request,response)
 })
 
-router.put('/orders', (request, response) => {
+router.patch('/orders', (request, response) => {
   new UpdateOrderController().handle(request,response)
 })
 
