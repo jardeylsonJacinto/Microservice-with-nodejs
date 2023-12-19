@@ -14,7 +14,7 @@ model Customer {
   id         String  @default(uuid())
   externalId String
   email      String  @unique
-  Order      Order[]
+  order      Order[]
 
   @@map("customers")
 }
@@ -23,7 +23,7 @@ model Product {
   id         String       @id @default(uuid())
   externalId String
   code       String
-  OrderItems OrderItems[]
+  oderItems  OrderItems[]
 
   @@map("products")
 }
@@ -34,7 +34,7 @@ model Order {
   createdAt     DateTime     @default(now())
   customerId    String
   customerEmail String
-  OrderItems    OrderItems[]
+  orderItems    OrderItems[]
 
   @@map("orders")
 }
