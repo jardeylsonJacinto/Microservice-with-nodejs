@@ -11,7 +11,7 @@ datasource db {
 }
 
 model Customer {
-  id         String  @default(uuid())
+  id         String  @unique @default(uuid())
   externalId String
   email      String  @unique
   order      Order[]
@@ -30,11 +30,12 @@ model Product {
 
 model Order {
   id            String       @id @default(uuid())
-  customer      Customer     @relation(fields: [customerEmail], references: [email])
+  customer      Customer     @relation(fields: [customerId], references: [id])
   createdAt     DateTime     @default(now())
   customerId    String
   customerEmail String
   orderItems    OrderItems[]
+  status        String
 
   @@map("orders")
 }
